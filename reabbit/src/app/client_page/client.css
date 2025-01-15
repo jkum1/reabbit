@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .serviceContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .serviceContainer h1 {
+    margin-bottom: 20px;
+  }
+  
+  .serviceContainer div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .serviceIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .serviceIcon p {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .serviceIcon:hover {
+    transform: scale(1.05);
+  }
+  
+  .appointmentContainer {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+  }
+  

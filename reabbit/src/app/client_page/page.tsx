@@ -1,25 +1,32 @@
 "use client";
 import { useState } from "react";
+import "./client.css";
 
 export default function ClientPage() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
 
   const listOfServices = {
-    Cleaning: 1,
-    "Car Detail": 2,
-    Tutor: 3,
-    Chef: 4,
-    DishWasher: 5,
-    Mover: 6,
+    House: 1,
+    Technical: 2,
+    "Car Services": 3,
+    Education: 4,
+    Hobby: 5,
+    Expert: 6,
+    "Know-How": 7,
   };
 
   const serviceDetails = {
-    Cleaning: "Cleaning Service",
-    "Car Detail": "Car detailing",
-    Tutor: "Tutoring",
-    Chef: "Professional cooks",
-    DishWasher: "Dishwasher",
-    Mover: "Moving Service",
+    House: "moving company, cleaning company, repairment company etc..",
+    Technical:
+      "computer coding, PPT designer, UI/UX designer, video editor etc..",
+    "Car Services": "mechanic, car detailer, etc..",
+    Education:
+      "online video editor, online private lesson, Off-line private lesson, Certificate-related training etc..",
+    Hobby:
+      "origami, game, piano, dance, music, Exercise(PT), sport, art, magic etc..",
+    Expert:
+      "developer, designer, marketing expert, project manager, product manager, finance expert etc..",
+    "Know-How": "stock, bit coin etc..",
   };
 
   const listOfUpcomingAppts = [9, 11, 15];
@@ -59,42 +66,55 @@ export default function ClientPage() {
 
   return (
     <div>
-      <h1>Services</h1>
-      <div>
-        {Object.entries(listOfServices).map(([service, id]) => (
-          <div
-            key={id}
-            className="service-icon"
-            onClick={() => setSelectedService(service)}
-          >
-            <p>{service}</p>
-          </div>
-        ))}
-      </div>
-      <div>
-        {selectedService ? (
+      <div className="container">
+        <div className="serviceContainer">
+          <h1>Services</h1>
           <div>
-            <h2>{selectedService}</h2>
-            <p>{selectedService[selectedService]}</p>
+            {Object.entries(listOfServices).map(([service, id]) => (
+              <div
+                key={id}
+                className="serviceIcon"
+                onClick={() => setSelectedService(service)}
+              >
+                <p>{service}</p>
+              </div>
+            ))}
           </div>
-        ) : (
-          <p>Please select a service for more details.</p>
-        )}
-      </div>
-      <h2>Upcoming Appointments</h2>
-      <div>
-        {listOfUpcomingAppts.map((apptId, count) => {
-          const details = apptsDetails[apptId];
-          return (
-            <div key={apptId}>
-              <h3>Appointment: {count + 1}</h3>
-              <p>Service Type: {details["Service Type"] || "N/A"}</p>
-              <p>Date: {details.Date}</p>
-              <p>Time: {details.Time}</p>
-              <p>Freelancers: {details.Freelancers.join(", ")}</p>
-            </div>
-          );
-        })}
+          <div>
+            {selectedService ? (
+              <>
+                <div>
+                  <h2>{selectedService}</h2>
+                </div>
+                <p>{serviceDetails[selectedService]}</p>
+              </>
+            ) : (
+              <p>Please select a service for more details.</p>
+            )}
+          </div>
+          <button onClick={() => setSelectedService(null)}>Back</button>
+        </div>
+        <div className="appointmentContainer">
+          {!selectedService && (
+            <>
+              <h1>Upcoming Appointments</h1>
+              <div>
+                {listOfUpcomingAppts.map((apptId, count) => {
+                  const details = apptsDetails[apptId];
+                  return (
+                    <div key={apptId}>
+                      <h3>Appointment: {count + 1}</h3>
+                      <p>Service Type: {details["Service Type"] || "N/A"}</p>
+                      <p>Date: {details.Date}</p>
+                      <p>Time: {details.Time}</p>
+                      <p>Freelancers: {details.Freelancers.join(", ")}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
