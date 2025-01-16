@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "./client.css";
+import Link from "next/link";
 
 export default function ClientPage() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -71,13 +72,9 @@ export default function ClientPage() {
           <h1>Services</h1>
           <div>
             {Object.entries(listOfServices).map(([service, id]) => (
-              <div
-                key={id}
-                className="serviceIcon"
-                onClick={() => setSelectedService(service)}
-              >
-                <p>{service}</p>
-              </div>
+                  <Link href={"/service/${listOfServices.id}"}>
+                  <button>{service}</button>
+                </Link>
             ))}
           </div>
           <div>
@@ -87,12 +84,12 @@ export default function ClientPage() {
                   <h2>{selectedService}</h2>
                 </div>
                 <p>{serviceDetails[selectedService]}</p>
+                <button onClick={() => setSelectedService(null)}>Back</button>
               </>
             ) : (
               <p>Please select a service for more details.</p>
             )}
           </div>
-          <button onClick={() => setSelectedService(null)}>Back</button>
         </div>
         <div className="appointmentContainer">
           {!selectedService && (
