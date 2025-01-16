@@ -16,20 +16,6 @@ export default function ClientPage() {
     "Know-How": 7,
   };
 
-  const serviceDetails = {
-    House: "moving company, cleaning company, repairment company etc..",
-    Technical:
-      "computer coding, PPT designer, UI/UX designer, video editor etc..",
-    "Car Services": "mechanic, car detailer, etc..",
-    Education:
-      "online video editor, online private lesson, Off-line private lesson, Certificate-related training etc..",
-    Hobby:
-      "origami, game, piano, dance, music, Exercise(PT), sport, art, magic etc..",
-    Expert:
-      "developer, designer, marketing expert, project manager, product manager, finance expert etc..",
-    "Know-How": "stock, bit coin etc..",
-  };
-
   const listOfUpcomingAppts = [9, 11, 15];
 
   type AppointmentDetails = {
@@ -68,13 +54,14 @@ export default function ClientPage() {
   return (
     <div>
       <div className="container">
+        <h1>Beezy</h1>
         <div className="serviceContainer">
-          <h1>Services</h1>
+          <h2>Services</h2>
           <div>
             {Object.entries(listOfServices).map(([service, id]) => (
-                  <Link href={"/service/${listOfServices.id}"}>
-                  <button>{service}</button>
-                </Link>
+              <Link key={id} href={`/client_page/${id}`}>
+                <button>{service}</button>
+              </Link>
             ))}
           </div>
           <div>
@@ -84,7 +71,6 @@ export default function ClientPage() {
                   <h2>{selectedService}</h2>
                 </div>
                 <p>{serviceDetails[selectedService]}</p>
-                <button onClick={() => setSelectedService(null)}>Back</button>
               </>
             ) : (
               <p>Please select a service for more details.</p>
@@ -94,7 +80,7 @@ export default function ClientPage() {
         <div className="appointmentContainer">
           {!selectedService && (
             <>
-              <h1>Upcoming Appointments</h1>
+              <h2>Upcoming Appointments</h2>
               <div>
                 {listOfUpcomingAppts.map((apptId, count) => {
                   const details = apptsDetails[apptId];
