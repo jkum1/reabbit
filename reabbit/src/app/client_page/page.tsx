@@ -4,7 +4,7 @@ import "./client.css";
 import Link from "next/link";
 
 export default function ClientPage() {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [selectedService] = useState<string | null>(null);
 
   const listOfServices = {
     House: 1,
@@ -58,8 +58,8 @@ export default function ClientPage() {
         <div className="serviceContainer">
           <h2>Services</h2>
           <div>
-            {Object.entries(listOfServices).map(([service, id]) => (
-              <Link key={id} href={`/client_page/${id}`}>
+            {Object.entries(listOfServices).map(([service, service_page]) => (
+              <Link key={service_page} href={`/client_page/${service_page}`}>
                 <button>{service}</button>
               </Link>
             ))}
@@ -70,7 +70,6 @@ export default function ClientPage() {
                 <div>
                   <h2>{selectedService}</h2>
                 </div>
-                <p>{serviceDetails[selectedService]}</p>
               </>
             ) : (
               <p>Please select a service for more details.</p>

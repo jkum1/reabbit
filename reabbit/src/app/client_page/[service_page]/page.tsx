@@ -1,7 +1,9 @@
 "use client";
 
 import { use, useEffect, useState } from "react";
+import Link from "next/link";
 
+// Sample data
 const serviceDetails = {
   1: "House: moving company, cleaning company, repairment company etc..",
   2: "Technical: computer coding, PPT designer, UI/UX designer, video editor etc..",
@@ -16,7 +18,7 @@ const freelancers = [
   {
     id: 1,
     name: "Gerald",
-    about: "1 years of experience",
+    about: "1 year of experience",
     rating: 3,
     reviews: 120,
     ratePerHour: "$50",
@@ -87,6 +89,7 @@ const freelancers = [
   },
 ];
 
+// Freelancer-by-service data mapping
 const freelancerByService = {
   1: [1, 8],
   2: [2],
@@ -100,25 +103,26 @@ const freelancerByService = {
 export default function ServicePage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ service_page: string }>;
 }) {
   const unwrappedParams = use(params);
-  const [serviceDetail, setServiceDetail] = useState("");
+  const [serviceDetail, setServiceDetail] = useState<string>("");
   const [availableFreelancers, setAvailableFreelancers] = useState<any[]>([]);
 
   useEffect(() => {
-    const id = unwrappedParams.id;
+    const id = unwrappedParams.service_page;
     if (id) {
-      const detail = serviceDetails[parseInt(id, 10)];
+      const serviceId = parseInt(id, 10); // Convert string to number
+      const detail = serviceDetails[serviceId];
       setServiceDetail(detail || "Service not found.");
 
-      const freelancerIds = freelancerByService[parseInt(id, 10)] || [];
+      const freelancerIds = freelancerByService[serviceId] || [];
       const filteredFreelancers = freelancerIds.map((id) =>
         freelancers.find((freelancer) => freelancer.id === id)
       );
       setAvailableFreelancers(filteredFreelancers);
     }
-  }, [unwrappedParams.id]);
+  }, [unwrappedParams.service_page]);
 
   return (
     <>
@@ -134,7 +138,11 @@ export default function ServicePage({
         {availableFreelancers.length > 0 ? (
           availableFreelancers.map((freelancer) => (
             <div key={freelancer.id}>
-              <h3>{freelancer?.name}</h3>
+              <Link
+                href={`/client_page/${unwrappedParams.service_page}/${freelancer.id}`}
+              >
+                <h3>{freelancer?.name}</h3>
+              </Link>
               <p>
                 Rating: {freelancer?.rating} ⭐ ({freelancer?.reviews} reviews)
               </p>

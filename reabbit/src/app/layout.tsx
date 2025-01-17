@@ -1,9 +1,17 @@
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { title } from "process";
+
+export const metadata = {
+  title: "Beezy",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-      <html>
-          <body>
-              {children}
-          </body>
-      </html>
-   )
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
