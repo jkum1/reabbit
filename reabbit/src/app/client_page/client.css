@@ -1,51 +1,95 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .serviceContainer {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .serviceContainer h1 {
-    margin-bottom: 20px;
-  }
-  
-  .serviceContainer div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .serviceIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .serviceIcon p {
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .serviceIcon:hover {
-    transform: scale(1.05);
-  }
-  
-  .appointmentContainer {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-  }
-  
+#clientPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url(../../../public/back1.png);
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+h2 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.serviceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+#servicesOptions {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+#servicesOptions button{
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+
+#servicesOptions button:hover{
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.appointmentContainer{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;  
+  padding: 20px;
+}
+
+.apptIndiv {
+  display: flex;
+  align-items: center;
+}
+
+.apptIndiv h3 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+.deets {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  margin: 10px;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.title{
+  text-align: center;
+}
+
+.apptIndiv p{
+  font-size: 13px;
+}
