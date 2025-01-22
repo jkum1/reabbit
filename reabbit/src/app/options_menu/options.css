@@ -1,0 +1,10 @@
+#optionsPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 402px;
+    height: 874px;
+    background: url(../../../public/image-2-2.png);
+}
+

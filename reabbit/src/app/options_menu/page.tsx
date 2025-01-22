@@ -1,11 +1,11 @@
 import Link from "next/link"
+import './options.css'
 
 export default function OptionsPage() {
     return (
-        <div>
-            Made it here<br/>
-            <Link href={'/freelancer_page'}>Freelancer</Link><br />
-            <Link href={'/client_page'}>Client</Link>
+        <div id="optionsPage">
+            <Link href={'/freelancer_page'} className="bttn">Freelancer</Link>
+            <Link href={'/client_page'} className="bttn">Client</Link>
         </div>
     )
 }

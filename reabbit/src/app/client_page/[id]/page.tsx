@@ -1,6 +1,8 @@
 "use client";
 
 import { use, useEffect, useState } from "react";
+import "./id.css";
+import { redirect } from 'next/navigation';
 
 const serviceDetails = {
   1: "House: moving company, cleaning company, repairment company etc..",
@@ -121,31 +123,27 @@ export default function ServicePage({
   }, [unwrappedParams.id]);
 
   return (
-    <>
+    <div id="idPage">
       <h1>Beezy</h1>
-      <div>
-        <button onClick={() => window.history.back()}>{"<<"}</button>
-        <div>
-          <p>{serviceDetail}</p>
-        </div>
+      <div id="info">
+        <button onClick={() => redirect('/client_page')}>{"<<"}</button>
+        <div id="infoVal">{serviceDetail}</div>
       </div>
       <h2>Available Freelancers</h2>
-      <div>
+      <div id="freelanceInfoDiv">
         {availableFreelancers.length > 0 ? (
           availableFreelancers.map((freelancer) => (
-            <div key={freelancer.id}>
+            <div key={freelancer.id} className="freelanceInfoIndiv">
               <h3>{freelancer?.name}</h3>
-              <p>
-                Rating: {freelancer?.rating} ⭐ ({freelancer?.reviews} reviews)
-              </p>
-              <p>About me: {freelancer?.about}</p>
-              <p>Rate: {freelancer?.ratePerHour}/hour</p>
+              <p className="deets">Rating: {freelancer?.rating} ⭐ ({freelancer?.reviews} reviews)</p>
+              <p className="deets">About me: {freelancer?.about}</p>
+              <p className="deets">Rate: {freelancer?.ratePerHour}/hour</p>
             </div>
           ))
         ) : (
           <p>No freelancers available for this service.</p>
         )}
       </div>
-    </>
+    </div>
   );
 }
