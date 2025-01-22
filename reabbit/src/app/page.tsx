@@ -23,5 +23,6 @@ export default function Home() {
         <div>Login</div>
         <button onClick={navigate}>Login</button>
     </div>
+
   );
 }
