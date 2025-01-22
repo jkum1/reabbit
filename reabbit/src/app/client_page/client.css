@@ -1,0 +1,87 @@
+#clientPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 402px;
+  height: 874px;
+  background: url(../../../public/image-2-2.png);
+}
+
+h1 {
+  width: 74px;
+  height: 26px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  /* or 117% */
+
+  color: #FFFFFF;
+}
+
+h2 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  /* or 117% */
+
+  color: #FFFFFF;
+}
+
+.serviceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#servicesOptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.appointmentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.appts {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.apptIndiv {
+  display: flex;
+  align-items: flex-end;
+}
+
+h3 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 28px;
+  min-width: 50px;
+  /* or 117% */
+
+  color: #FFFFFF;
+}
+
+.deets {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 28px;
+  min-width: 60px;
+  /* or 117% */
+
+  color: #FFFFFF;
+}
