@@ -86,7 +86,7 @@ export default function ClientPage() {
         <div className="serviceContainer">
           <h2>Services</h2>
           <div id="servicesOptions">
-            <button onClick={() => goBack()}>{'<<'}</button>
+            <button onClick={() => goBack()}>{'<'}</button>
             {selectedService.map((service, i) => ( 
               <Service serviceType={service} keyID={i+1}/>
             ))}
