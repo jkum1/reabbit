@@ -3,46 +3,63 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 402px;
-  height: 874px;
-  background: url(../../../public/image-2-2.png);
+  width: 100%;
+  height: 100%;
+  background: url(../../../public/image-2-2.png) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
 h1 {
-  width: 74px;
-  height: 26px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  /* or 117% */
-
-  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: white;
+  margin: 20px 0;
 }
 
 h2 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   font-size: 24px;
-  line-height: 28px;
-  /* or 117% */
-
-  color: #FFFFFF;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .serviceContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 #servicesOptions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 10px; 
+  margin-top: 20px;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #2c2c2c;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto;
+  min-width: 150px;
+  max-width: 90%;
+}
+
+button:hover {
+  background-color: #1a1a1a;
 }
 
 .appointmentContainer {
@@ -53,35 +70,98 @@ h2 {
 
 .appts {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  gap: 10px;
 }
 
 .apptIndiv {
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 h3 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 11px;
-  line-height: 28px;
-  min-width: 50px;
-  /* or 117% */
-
-  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  margin: 5px 0;
 }
 
 .deets {
-  font-family: 'Inter';
-  font-style: normal;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 11px;
-  line-height: 28px;
-  min-width: 60px;
-  /* or 117% */
+  font-size: 14px;
+  color: white;
+  margin: 3px 0;
+}
 
-  color: #FFFFFF;
+.bttn {
+  width: auto;
+  min-width: 150px;
+  max-width: 90%;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #2c2c2c;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.bttn:hover {
+  background-color: #1a1a1a;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  /* Header adjustments */
+  h1 {
+    font-size: 28px; 
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .bttn, button {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  #servicesOptions {
+    gap: 8px;
+  }
+
+  .apptIndiv {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .apptIndiv h3 {
+    font-size: 14px;
+  }
+
+  .deets {
+    font-size: 12px;
+  }
+
+  .serviceContainer {
+    margin-bottom: 20px;
+  }
+  
+  #clientPage {
+    height: auto;
+    min-height: 100vh;
+  }
 }
