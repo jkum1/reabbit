@@ -126,7 +126,7 @@ export default function ServicePage({
     <div id="idPage">
       <h1>Beezy</h1>
       <div id="info">
-        <button onClick={() => redirect('/client_page')}>{"<<"}</button>
+        <button onClick={() => redirect('/client_page')}>{"<"}</button>
         <div id="infoVal">{serviceDetail}</div>
       </div>
       <h2>Available Freelancers</h2>
